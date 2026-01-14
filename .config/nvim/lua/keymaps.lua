@@ -31,7 +31,7 @@ local augroup = vim.api.nvim_create_augroup("MyFormatOptions", { clear = true })
 -- Disable that comments continue on new lines automatically
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup,
-  pattern = "*", -- Run for all filetypes
+  pattern = "*",
   callback = function()
     vim.bo.formatoptions = string.gsub(vim.bo.formatoptions, "[ro]", "")
   end,
@@ -43,5 +43,13 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.shiftwidth = 2
     vim.bo.tabstop = 2
     vim.bo.expandtab = true
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+  pattern = "*",
+  callback = function()
+    vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
+    vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "none" })
   end,
 })
