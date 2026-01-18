@@ -160,5 +160,6 @@
 
   // Privacy
   "redhat.telemetry.enabled": false,
-  "jdk.telemetry.enabled": false
+  "jdk.telemetry.enabled": false,
+  "vsicons.dontShowNewVersionMessage": true
 }
