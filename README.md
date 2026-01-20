@@ -3,6 +3,7 @@
 ## To-Do
 - Test instructions on clean machine
 - Add iTerm2 config
+- Add `defaults write -g ApplePressAndHoldEnabled -bool false` to post-install for mac
 
 ## Installation
 
