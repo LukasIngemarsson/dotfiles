@@ -1,5 +1,7 @@
 # Dotfiles
 
+(TODO: handle if brew plugins already exist)
+
 ## Installation
 
 Note: If you clone this repository to a location other than `~/dotfiles`, you must open the installation script (`install_mac.sh` or `install_linux.sh`) and update the `DOTFILES` variable at the top of the file to match your chosen path.
@@ -40,6 +42,8 @@ After the script finishes, complete these manual steps:
 * Wait for the package manager (Lazy/Mason) to install dependencies automatically.
 * If you see errors, run `:checkhealth`.
 
-3. Restart:
+3. Nerd Font (Hack): [Download](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Hack.zip) (for icons in terminal)
+
+4. Restart:
 * Close and re-open your terminal to load the new zsh configuration.
 
