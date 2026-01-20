@@ -36,10 +36,17 @@ ln -s "$DOTFILES/.tmux.conf" "$HOME/.tmux.conf"
 rm -rf "$HOME/.config/nvim"
 ln -s "$DOTFILES/nvim" "$HOME/.config/nvim"
 
+# 5. Setup Tmux Plugin Manager
+echo "[+] Setting up Tmux..."
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+fi
+"$HOME/.tmux/plugins/tpm/bin/install_plugins"
+
 # Change Shell
 echo "[+] Changing default shell to zsh..."
-sudo chsh -s $(which zsh) $USER
+chsh -s $(which zsh) $USER
 
 echo "--------------------------------------------------"
 echo "Linux Setup Complete."
-echo "NOTE: Install VS Code manually (Snap, Apt, or Windows Exe)."
+echo "NOTE: Install VS Code manually."

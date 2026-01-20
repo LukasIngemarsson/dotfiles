@@ -15,10 +15,10 @@ if ! command -v brew &> /dev/null; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# 2. Install Tools (VS Code included because it's easy on Mac)
+# 2. Install Tools
 echo "[+] Installing Binaries..."
 brew install git node pyenv fzf ripgrep tmux neovim
-brew install --cask karabiner-elements visual-studio-code
+brew install --cask karabiner-elements visual-studio-code iterm2 rectangle mos
 
 # 3. Install Oh My Zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -38,6 +38,7 @@ mkdir -p "$HOME/.config"
 
 rm -rf "$HOME/.zshrc" "$HOME/.tmux.conf"
 ln -s "$DOTFILES/.zshrc" "$HOME/.zshrc"
+
 ln -s "$DOTFILES/.tmux.conf" "$HOME/.tmux.conf"
 
 rm -rf "$HOME/.config/nvim"
@@ -45,6 +46,21 @@ ln -s "$DOTFILES/nvim" "$HOME/.config/nvim"
 
 rm -rf "$HOME/.config/karabiner"
 ln -s "$DOTFILES/.config/karabiner" "$HOME/.config/karabiner"
+
+# 6. Setup Tmux Plugin Manager
+echo "[+] Setting up Tmux..."
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+fi
+"$HOME/.tmux/plugins/tpm/bin/install_plugins"
+
+# 6. Configure iTerm2
+echo "[+] Configuring iTerm2..."
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$DOTFILES"
+defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+
+# 7. General Preferences
+defaults write -g applepressandholdenabled -bool false # disable hold for special chars
 
 echo "--------------------------------------------------"
 echo "macOS Setup Complete."
