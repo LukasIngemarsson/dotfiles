@@ -17,7 +17,7 @@ fi
 
 # 2. Install Tools
 echo "[+] Installing Binaries..."
-brew install git node pyenv fzf ripgrep tmux neovim
+brew install git node pyenv fzf ripgrep tmux neovim bash
 brew install --cask karabiner-elements visual-studio-code iterm2 rectangle mos
 
 # 3. Install Oh My Zsh

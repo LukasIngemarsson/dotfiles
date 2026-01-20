@@ -1,33 +1,36 @@
-# -> INSTANT PROMPT
+# --- INSTANT PROMPT ---
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# -> OMZ VARIABLES
+# --- OMZ VARIABLES ---
 
-# Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Define the custom folder location
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 
-ZSH_THEME="powerlevel10k/powerlevel10k" # set by `omz`
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 export PATH="$HOME/.fzf/bin:$PATH"
 
-# -> ENV & PATHS 
+# --- ENV & PATHS ---
+
+# homebrew
+export PATH="/opt/homebrew/bin:$PATH"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+# rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# c++
 export CPLUS_INCLUDE_PATH="$HOME/.local/include:$CPLUS_INCLUDE_PATH"
 
-# -> OMZ PLUGINS
+# --- OMZ PLUGINS ---
 
 source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -37,11 +40,11 @@ fpath+=$ZSH_CUSTOM/plugins/zsh-completions/src
 
 source $ZSH/oh-my-zsh.sh
 
-# -> ALIASES
+# --- ALIASES ---
 
 alias vim="nvim"
 
-# -> INIT
+# --- INIT ---
 
 # PowerLevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
