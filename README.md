@@ -5,6 +5,7 @@
 - Add iTerm2 config
 - Add `defaults write -g ApplePressAndHoldEnabled -bool false` to post-install for mac
 - Add info for Rectangle and Mos for Mac (plugins)
+- Add tpm install
 
 ## Installation
 
