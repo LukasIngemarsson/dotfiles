@@ -1,7 +1,5 @@
 # Dotfiles
 
-(TODO: handle if brew plugins already exist)
-
 ## Installation
 
 Note: If you clone this repository to a location other than `~/dotfiles`, you must open the installation script (`install_mac.sh` or `install_linux.sh`) and update the `DOTFILES` variable at the top of the file to match your chosen path.
