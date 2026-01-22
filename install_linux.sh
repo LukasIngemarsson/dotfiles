@@ -32,7 +32,7 @@ echo "[+] Linking Dotfiles..."
 mkdir -p "$HOME/.config"
 ln -sfn "$DOTFILES/.zshrc" "$HOME/.zshrc"
 ln -sfn "$DOTFILES/.tmux.conf" "$HOME/.tmux.conf"
-ln -sfn "$DOTFILES/nvim" "$HOME/.config/nvim"
+ln -sfn "$DOTFILES/.config/nvim" "$HOME/.config/nvim"
 
 # 5. Setup Tmux Plugin Manager
 echo "[+] Setting up Tmux..."

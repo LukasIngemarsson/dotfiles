@@ -58,7 +58,7 @@ mkdir -p "$HOME/.config"
 
 ln -sfn "$DOTFILES/.zshrc" "$HOME/.zshrc"
 ln -sfn "$DOTFILES/.tmux.conf" "$HOME/.tmux.conf"
-ln -sfn "$DOTFILES/nvim" "$HOME/.config/nvim"
+ln -sfn "$DOTFILES/.config/nvim" "$HOME/.config/nvim"
 ln -sfn "$DOTFILES/.config/karabiner" "$HOME/.config/karabiner"
 
 # 6. Setup Tmux Plugin Manager
