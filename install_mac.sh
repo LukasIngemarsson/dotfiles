@@ -80,4 +80,7 @@ killall Dock
 defaults write com.apple.finder NewWindowTarget 'PfHm' # open new finder windows from home
 killall Finder
 
+echo
 echo "[!] Done! Open a new terminal instance for all the changes to take effect."
+echo "[!] NOTE: To properly render icons in the terminal, download a nerd font from https://www.nerdfonts.com."
+

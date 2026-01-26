@@ -47,4 +47,6 @@ else
     echo "[*] Default shell is already zsh. Skipping."
 fi
 
+echo
 echo "[!] Done! Open a new terminal instance for all the changes to take effect."
+echo "[!] NOTE: To properly render icons in the terminal, download a nerd font from https://www.nerdfonts.com."
