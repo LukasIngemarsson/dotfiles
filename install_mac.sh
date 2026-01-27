@@ -76,9 +76,9 @@ echo "[+] Setting macOS preferences..."
 defaults write -g applepressandholdenabled -bool false # disable hold for special chars
 defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0.2
+defaults write com.apple.dock "mru-spaces" -bool "false" # disable desktops from rearranging
 killall Dock
 defaults write com.apple.finder NewWindowTarget 'PfHm' # open new finder windows from home
-defaults write com.apple.dock "mru-spaces" -bool "false" # disable desktops from rearranging
 killall Finder
 
 echo
