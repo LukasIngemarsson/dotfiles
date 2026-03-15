@@ -30,6 +30,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # c++
 export CPLUS_INCLUDE_PATH="$HOME/.local/include:$CPLUS_INCLUDE_PATH"
 
+# user-local binaries (for pip --user and other tools)
+export PATH="$HOME/.local/bin:$PATH"
+
 # --- OMZ PLUGINS ---
 
 source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
