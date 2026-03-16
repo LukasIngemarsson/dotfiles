@@ -17,7 +17,6 @@ fi
 echo "[+] Installing tools with Homebrew..."
 brew bundle --file=- <<EOF
 # Binaries
-brew "git"
 brew "node"
 brew "pyenv"
 brew "fzf"
@@ -32,6 +31,7 @@ cask "visual-studio-code"
 cask "iterm2"
 cask "rectangle"
 cask "mos"
+cask "alfred"
 EOF
 
 # oh my zsh
