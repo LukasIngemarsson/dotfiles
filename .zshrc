@@ -49,10 +49,49 @@ alias vim="nvim"
 
 # --- FUNCTIONS ---
 
-init-project() {
+use-default-stack() {
+  local claude_md="CLAUDE.md"
+  cat >> "$claude_md" <<'EOF'
+
+## Tech Stack
+
+- **Framework**: SvelteKit with TypeScript
+- **Styling**: Tailwind CSS with DaisyUI components
+- **Backend/DB**: Supabase (when a backend or database is needed)
+- **Deployment**: Vercel (when deployment is needed)
+- Use other relevant APIs and libraries as appropriate for the task at hand
+EOF
+  echo "Default tech stack added to $claude_md."
+}
+
+init-git-rules() {
   mkdir -p .claude/rules
   cp "$HOME/coding-workspace/dotfiles/claude/git.md" .claude/rules/git.md
   echo "Claude git rules added to $(basename "$PWD")."
+}
+
+create-git-repo() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: create-git-repo <name>"
+    return 1
+  fi
+  gh repo create "$1" --private --clone \
+    && cd "$1" \
+    && git commit --allow-empty -m "initial commit" \
+    && git push \
+    && gh api "repos/$(gh repo view --json nameWithOwner -q .nameWithOwner)/branches/main/protection" \
+        --method PUT \
+        --input - <<'EOF'
+{
+  "required_pull_request_reviews": {
+    "required_approving_review_count": 0
+  },
+  "enforce_admins": false,
+  "required_status_checks": null,
+  "restrictions": null
+}
+EOF
+  echo "Repo '$1' created with main branch protection."
 }
 
 # --- INIT ---
