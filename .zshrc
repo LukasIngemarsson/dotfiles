@@ -52,7 +52,6 @@ alias vim="nvim"
 init-project() {
   mkdir -p .claude/rules
   cp "$HOME/coding-workspace/dotfiles/claude/git.md" .claude/rules/git.md
-  [ -d .git ] || git init
   echo "Claude git rules added to $(basename "$PWD")."
 }
 
