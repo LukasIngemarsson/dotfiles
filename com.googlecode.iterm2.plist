@@ -2878,6 +2878,8 @@
 			</dict>
 			<key>Send Code When Idle</key>
 			<false/>
+			<key>Send Idle Alert</key>
+			<true/>
 			<key>Shortcut</key>
 			<string></string>
 			<key>Silence Bell</key>

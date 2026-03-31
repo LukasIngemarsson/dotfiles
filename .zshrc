@@ -49,22 +49,13 @@ alias vim="nvim"
 
 # --- FUNCTIONS ---
 
-use-default-stack() {
-  local claude_md="CLAUDE.md"
-  cat >> "$claude_md" <<'EOF'
-
-## Tech Stack
-
-- **Framework**: SvelteKit with TypeScript
-- **Styling**: Tailwind CSS with DaisyUI components
-- **Backend/DB**: Supabase (when a backend or database is needed)
-- **Deployment**: Vercel (when deployment is needed)
-- Use other relevant APIs and libraries as appropriate for the task at hand
-EOF
-  echo "Default tech stack added to $claude_md."
+claude-sveltekit-supabase-rule() {
+  mkdir -p .claude/rules
+  cp "$HOME/coding-workspace/dotfiles/claude/sveltekit-supabase.md" .claude/rules/sveltekit-supabase.md
+  echo "Claude sveltekit-supabase rules added to $(basename "$PWD")."
 }
 
-init-git-rules() {
+claude-git-rule() {
   mkdir -p .claude/rules
   cp "$HOME/coding-workspace/dotfiles/claude/git.md" .claude/rules/git.md
   echo "Claude git rules added to $(basename "$PWD")."
