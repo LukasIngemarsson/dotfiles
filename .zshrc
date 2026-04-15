@@ -61,30 +61,6 @@ claude-git-rule() {
   echo "Claude git rules added to $(basename "$PWD")."
 }
 
-create-git-repo() {
-  if [[ -z "$1" ]]; then
-    echo "Usage: create-git-repo <name>"
-    return 1
-  fi
-  gh repo create "$1" --private --clone \
-    && cd "$1" \
-    && git commit --allow-empty -m "initial commit" \
-    && git push \
-    && gh api "repos/$(gh repo view --json nameWithOwner -q .nameWithOwner)/branches/main/protection" \
-        --method PUT \
-        --input - <<'EOF'
-{
-  "required_pull_request_reviews": {
-    "required_approving_review_count": 0
-  },
-  "enforce_admins": false,
-  "required_status_checks": null,
-  "restrictions": null
-}
-EOF
-  echo "Repo '$1' created with main branch protection."
-}
-
 # --- INIT ---
 
 # PowerLevel10k
@@ -107,3 +83,15 @@ unset __conda_setup
 # FZF
 eval "$(fzf --zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# pnpm
+export PNPM_HOME="/home/lukas/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
